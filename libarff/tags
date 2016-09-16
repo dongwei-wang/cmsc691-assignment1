@@ -1,0 +1,60 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ArffData	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    ArffData();$/;"	p	class:ArffData	access:public	signature:()
+ArffData	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^class ArffData {$/;"	c
+ArffData::ArffData	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    ArffData();$/;"	p	class:ArffData	access:public	signature:()
+ArffData::_cross_check_instance	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    void _cross_check_instance(ArffInstance* inst);$/;"	p	class:ArffData	access:private	signature:(ArffInstance* inst)
+ArffData::add_attr	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    void add_attr(ArffAttr* attr);$/;"	p	class:ArffData	access:public	signature:(ArffAttr* attr)
+ArffData::add_date_format	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    void add_date_format(const std::string& name, const std::string& val);$/;"	p	class:ArffData	access:public	signature:(const std::string& name, const std::string& val)
+ArffData::add_instance	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    void add_instance(ArffInstance* inst);$/;"	p	class:ArffData	access:public	signature:(ArffInstance* inst)
+ArffData::add_nominal_val	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    void add_nominal_val(const std::string& name, const std::string& val);$/;"	p	class:ArffData	access:public	signature:(const std::string& name, const std::string& val)
+ArffData::get_attr	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    ArffAttr* get_attr(int32 idx) const;$/;"	p	class:ArffData	access:public	signature:(int32 idx) const
+ArffData::get_date_format	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    std::string get_date_format(const std::string& name);$/;"	p	class:ArffData	access:public	signature:(const std::string& name)
+ArffData::get_instance	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    ArffInstance* get_instance(int32 idx) const;$/;"	p	class:ArffData	access:public	signature:(int32 idx) const
+ArffData::get_nominal	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    ArffNominal get_nominal(const std::string& name);$/;"	p	class:ArffData	access:public	signature:(const std::string& name)
+ArffData::get_relation_name	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    std::string get_relation_name() const;$/;"	p	class:ArffData	access:public	signature:() const
+ArffData::m_attrs	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    std::vector<ArffAttr*> m_attrs;$/;"	m	class:ArffData	access:private
+ArffData::m_formats	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    ArffDateFormat m_formats;$/;"	m	class:ArffData	access:private
+ArffData::m_instances	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    std::vector<ArffInstance*> m_instances;$/;"	m	class:ArffData	access:private
+ArffData::m_nominals	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    std::map<std::string, ArffNominal > m_nominals;$/;"	m	class:ArffData	access:private
+ArffData::m_num_attrs	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    int32 m_num_attrs;$/;"	m	class:ArffData	access:private
+ArffData::m_num_classes	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    int32 m_num_classes;$/;"	m	class:ArffData	access:private
+ArffData::m_num_instances	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    int32 m_num_instances;$/;"	m	class:ArffData	access:private
+ArffData::m_rel	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    std::string m_rel;$/;"	m	class:ArffData	access:private
+ArffData::num_attributes	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    int32 num_attributes() const;$/;"	p	class:ArffData	access:public	signature:() const
+ArffData::num_classes	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    int32 num_classes();$/;"	p	class:ArffData	access:public	signature:()
+ArffData::num_instances	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    int32 num_instances() const;$/;"	p	class:ArffData	access:public	signature:() const
+ArffData::set_relation_name	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    void set_relation_name(const std::string& name);$/;"	p	class:ArffData	access:public	signature:(const std::string& name)
+ArffData::write_arff	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    void write_arff(const std::string& file);$/;"	p	class:ArffData	access:public	signature:(const std::string& file)
+ArffData::~ArffData	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    ~ArffData();$/;"	p	class:ArffData	access:public	signature:()
+ArffDateFormat	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^typedef std::map<std::string, std::string> ArffDateFormat;$/;"	t
+ArffNominal	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^typedef std::vector<std::string> ArffNominal;$/;"	t
+__INCLUDED_ARFF_DATA_H__	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	2;"	d
+_cross_check_instance	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    void _cross_check_instance(ArffInstance* inst);$/;"	p	class:ArffData	access:private	signature:(ArffInstance* inst)
+add_attr	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    void add_attr(ArffAttr* attr);$/;"	p	class:ArffData	access:public	signature:(ArffAttr* attr)
+add_date_format	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    void add_date_format(const std::string& name, const std::string& val);$/;"	p	class:ArffData	access:public	signature:(const std::string& name, const std::string& val)
+add_instance	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    void add_instance(ArffInstance* inst);$/;"	p	class:ArffData	access:public	signature:(ArffInstance* inst)
+add_nominal_val	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    void add_nominal_val(const std::string& name, const std::string& val);$/;"	p	class:ArffData	access:public	signature:(const std::string& name, const std::string& val)
+get_attr	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    ArffAttr* get_attr(int32 idx) const;$/;"	p	class:ArffData	access:public	signature:(int32 idx) const
+get_date_format	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    std::string get_date_format(const std::string& name);$/;"	p	class:ArffData	access:public	signature:(const std::string& name)
+get_instance	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    ArffInstance* get_instance(int32 idx) const;$/;"	p	class:ArffData	access:public	signature:(int32 idx) const
+get_nominal	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    ArffNominal get_nominal(const std::string& name);$/;"	p	class:ArffData	access:public	signature:(const std::string& name)
+get_relation_name	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    std::string get_relation_name() const;$/;"	p	class:ArffData	access:public	signature:() const
+m_attrs	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    std::vector<ArffAttr*> m_attrs;$/;"	m	class:ArffData	access:private
+m_formats	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    ArffDateFormat m_formats;$/;"	m	class:ArffData	access:private
+m_instances	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    std::vector<ArffInstance*> m_instances;$/;"	m	class:ArffData	access:private
+m_nominals	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    std::map<std::string, ArffNominal > m_nominals;$/;"	m	class:ArffData	access:private
+m_num_attrs	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    int32 m_num_attrs;$/;"	m	class:ArffData	access:private
+m_num_classes	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    int32 m_num_classes;$/;"	m	class:ArffData	access:private
+m_num_instances	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    int32 m_num_instances;$/;"	m	class:ArffData	access:private
+m_rel	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    std::string m_rel;$/;"	m	class:ArffData	access:private
+num_attributes	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    int32 num_attributes() const;$/;"	p	class:ArffData	access:public	signature:() const
+num_classes	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    int32 num_classes();$/;"	p	class:ArffData	access:public	signature:()
+num_instances	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    int32 num_instances() const;$/;"	p	class:ArffData	access:public	signature:() const
+set_relation_name	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    void set_relation_name(const std::string& name);$/;"	p	class:ArffData	access:public	signature:(const std::string& name)
+write_arff	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    void write_arff(const std::string& file);$/;"	p	class:ArffData	access:public	signature:(const std::string& file)
+~ArffData	/home/wangd7/Desktop/cmsc691-assign1/libarff/arff_data.h	/^    ~ArffData();$/;"	p	class:ArffData	access:public	signature:()
