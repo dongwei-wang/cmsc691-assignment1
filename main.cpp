@@ -11,8 +11,6 @@
 
 using namespace std;
 
-//mutex m;
-
 int* KNN(ArffData* dataset){
     int* predictions = (int*)malloc(dataset->num_instances() * sizeof(int));
     for(int i = 0; i < dataset->num_instances(); i++){
@@ -106,7 +104,6 @@ bool matrixcompare(int* matrix1, int* matrix2, int size){
 	return true;
 }
 
-
 int main(int argc, char *argv[])
 {
     if(argc != 2){
@@ -166,17 +163,9 @@ int main(int argc, char *argv[])
     printf("The 1NN classifier in a PARALLEL manner for %lu instances required %llu ms CPU time, accuracy was %.4f\n",
 			dataset->num_instances(), (long long unsigned int)diff, accr_mt);
 
-	// printf("\n******** SEQUENTIAL prediction matrix ********\n");
-	// maitrixdisplay(confusionMatrix, dataset->num_classes());
-
-	// printf("\n******** PARALLEL prediction matrix ********\n");
-	// maitrixdisplay(cm_mt, dataset->num_classes());
-
 	printf("Compare the two confusion matrix of sequential and parallel......\n");
 	if( matrixcompare(cm_mt, confusionMatrix, dataset->num_classes()) )
 		printf("Test Passed!\n");
 	else
 		printf("Test Failed!\n");
-
-
 }
