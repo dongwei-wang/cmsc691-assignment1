@@ -11,7 +11,7 @@
 
 using namespace std;
 
-mutex m;
+//mutex m;
 
 int* KNN(ArffData* dataset){
     int* predictions = (int*)malloc(dataset->num_instances() * sizeof(int));
@@ -41,7 +41,7 @@ int* KNN(ArffData* dataset){
 }
 
 // This is the thread function for parallel
-void* KNN_thread(ArffData* dataset, int *confusionMatrix, int start, int gap){
+void* KNN_thread(ArffData* dataset, int *predictions, int start, int gap){
 	for( int i = start; i<start+gap; i++ ){
 		float smallestDistance = FLT_MAX;
 		int smallestDistanceClass;
@@ -63,10 +63,7 @@ void* KNN_thread(ArffData* dataset, int *confusionMatrix, int start, int gap){
 				smallestDistanceClass = dataset->get_instance(j)->get(dataset->num_attributes()-1)->operator int32();
 			}
 		}
-		int trueClass = dataset->get_instance(i)->get(dataset->num_attributes()-1)->operator int32();
-		m.lock();
-		confusionMatrix[trueClass*dataset->num_classes() + smallestDistanceClass]++;
-		m.unlock();
+		predictions[i] = smallestDistanceClass;
 	}
 }
 
@@ -75,7 +72,7 @@ int* computeConfusionMatrix(int* predictions, ArffData* dataset)
     int* confusionMatrix = (int*)calloc(dataset->num_classes() * dataset->num_classes(), sizeof(int));
 	// for each instance compare the true class and predicted class
     for(int i = 0; i < dataset->num_instances(); i++){
-        int trueClass = dataset->get_instance(i)->get(dataset->num_attributes() - 1)->operator int32();
+        int trueClass = dataset->get_instance(i)->get(dataset->num_attributes()-1)->operator int32();
         int predictedClass = predictions[i];
         confusionMatrix[trueClass*dataset->num_classes() + predictedClass]++;
     }
@@ -100,6 +97,15 @@ void maitrixdisplay(int* matrix, int size){
 		printf("\n");
 	}
 }
+
+bool matrixcompare(int* matrix1, int* matrix2, int size){
+	for(int i=0; i<size*size; i++){
+		if(matrix1[i] - matrix2[i] != 0)
+			return false;
+	}
+	return true;
+}
+
 
 int main(int argc, char *argv[])
 {
@@ -134,7 +140,7 @@ int main(int argc, char *argv[])
 		exit(1);
 	}
 
-	int* cm_mt = (int*)calloc(dataset->num_classes() * dataset->num_classes(), sizeof(int));
+	int* prediction_mt = (int*)malloc(dataset->num_instances()*sizeof(int));
 
 	clock_gettime(CLOCK_MONOTONIC_RAW, &start);
 	thread *threads = new thread[thread_cnt];
@@ -145,7 +151,7 @@ int main(int argc, char *argv[])
 	// launch threads for parallel execution
 	for( int i=0; i<thread_cnt; i++){
 		gap = i<reminder ? quotient+1 : quotient;
-		threads[i] = thread(KNN_thread, dataset, cm_mt, begin, gap);
+		threads[i] = thread(KNN_thread, dataset, prediction_mt, begin, gap);
 		begin += gap;
 	}
 
@@ -153,15 +159,24 @@ int main(int argc, char *argv[])
 		threads[i].join();
 	}
 
+	int *cm_mt = computeConfusionMatrix(prediction_mt,dataset);
     float accr_mt = computeAccuracy(cm_mt, dataset);
     clock_gettime(CLOCK_MONOTONIC_RAW, &end);
     diff = (1000000000L * (end.tv_sec - start.tv_sec) + end.tv_nsec - start.tv_nsec) / 1e6;
     printf("The 1NN classifier in a PARALLEL manner for %lu instances required %llu ms CPU time, accuracy was %.4f\n",
 			dataset->num_instances(), (long long unsigned int)diff, accr_mt);
 
-	printf("\n******** SEQUENTIAL prediction matrix ********\n");
-	maitrixdisplay(confusionMatrix, dataset->num_classes());
+	// printf("\n******** SEQUENTIAL prediction matrix ********\n");
+	// maitrixdisplay(confusionMatrix, dataset->num_classes());
 
-	printf("\n******** PARALLEL prediction matrix ********\n");
-	maitrixdisplay(cm_mt, dataset->num_classes());
+	// printf("\n******** PARALLEL prediction matrix ********\n");
+	// maitrixdisplay(cm_mt, dataset->num_classes());
+
+	printf("Compare the two confusion matrix of sequential and parallel......\n");
+	if( matrixcompare(cm_mt, confusionMatrix, dataset->num_classes()) )
+		printf("Test Passed!\n");
+	else
+		printf("Test Failed!\n");
+
+
 }
