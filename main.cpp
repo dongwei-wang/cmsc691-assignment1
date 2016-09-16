@@ -6,7 +6,6 @@
 #include <iostream>
 #include <thread>
 #include <mutex>
-//#include <pthread.h>
 #include "libarff/arff_parser.h"
 #include "libarff/arff_data.h"
 
